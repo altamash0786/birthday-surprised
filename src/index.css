@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --color-romantic-purple: #6C63FF;
+  --color-romantic-pink: #FF6BAA;
+  --color-rose-gold: #B76E79;
+  --color-deep-purple: #4A42E0;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: #0a0a12;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a12;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6C63FF, #FF6BAA);
+  border-radius: 4px;
+}
+
+/* Glass morphism base */
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Glow effects */
+.glow-text {
+  text-shadow: 0 0 40px rgba(108, 99, 255, 0.5), 0 0 80px rgba(255, 107, 170, 0.3);
+}
+
+.glow-button {
+  box-shadow: 0 0 30px rgba(108, 99, 255, 0.4), 0 0 60px rgba(255, 107, 170, 0.2);
+}
+
+.glow-heart {
+  filter: drop-shadow(0 0 30px rgba(255, 107, 170, 0.8)) drop-shadow(0 0 60px rgba(108, 99, 255, 0.5));
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #FF6BAA 50%, #6C63FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+/* Twinkle stars */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 30px rgba(108, 99, 255, 0.4), 0 0 60px rgba(255, 107, 170, 0.2); }
+  50% { box-shadow: 0 0 50px rgba(108, 99, 255, 0.6), 0 0 100px rgba(255, 107, 170, 0.4); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Heartbeat */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.15); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.1); }
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Flip card */
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Balloons */
+@keyframes balloon-float {
+  0%, 100% { transform: translateY(100vh) translateX(0) rotate(-5deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) translateX(30px) rotate(5deg); opacity: 0; }
+}
+
+/* Section backgrounds */
+.section-gradient {
+  background: radial-gradient(ellipse at top, rgba(108, 99, 255, 0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at bottom, rgba(255, 107, 170, 0.1) 0%, transparent 50%),
+              #0a0a12;
+}
+
+/* Hide elements for animation */
+.will-animate {
+  will-change: transform, opacity;
+}
